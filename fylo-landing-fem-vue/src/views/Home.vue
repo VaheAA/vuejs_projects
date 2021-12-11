@@ -1,11 +1,11 @@
 <template>
-  <header><Navbar></Navbar></header>
+  <header><Navbar /></header>
   <main>
-    <Hero></Hero>
-    <Features></Features>
-    <EarlyAccess></EarlyAccess>
+    <Hero />
+    <Features />
+    <EarlyAccess />
   </main>
-  <Footer></Footer>
+  <Footer />
 </template>
 
 <script>

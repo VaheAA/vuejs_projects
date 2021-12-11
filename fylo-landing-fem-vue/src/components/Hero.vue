@@ -26,6 +26,7 @@ export default {
 <style scoped>
 .hero {
   padding-top: 100px;
+  margin-bottom: 100px;
 }
 .hero__inner {
   display: flex;
