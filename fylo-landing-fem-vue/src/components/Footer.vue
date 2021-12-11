@@ -54,17 +54,17 @@
           <div class="footer__social">
             <ul class="footer__list footer__list--row">
               <li class="footer__list-item">
-                <a class="footer__list-link" href="#"
+                <a title="facebook" class="footer__list-link" href="#"
                   ><i class="fab fa-facebook"></i>
                 </a>
               </li>
               <li class="footer__list-item">
-                <a class="footer__list-link" href="#"
+                <a title="twitter" class="footer__list-link" href="#"
                   ><i class="fab fa-twitter"></i>
                 </a>
               </li>
               <li class="footer__list-item">
-                <a class="footer__list-link" href="#"
+                <a title="instagram" class="footer__list-link" href="#"
                   ><i class="fab fa-instagram"></i>
                 </a>
               </li>
