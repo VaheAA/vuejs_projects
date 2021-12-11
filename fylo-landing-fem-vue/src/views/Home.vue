@@ -1,8 +1,10 @@
 <template>
-  <Navbar></Navbar>
-  <Hero></Hero>
-  <Features></Features>
-  <EarlyAccess></EarlyAccess>
+  <header><Navbar></Navbar></header>
+  <main>
+    <Hero></Hero>
+    <Features></Features>
+    <EarlyAccess></EarlyAccess>
+  </main>
   <Footer></Footer>
 </template>
 
