@@ -17,7 +17,10 @@
 
 <script>
 import HeroForm from './HeroForm.vue';
-export default {components: {HeroForm}};
+export default {
+  name: 'Hero',
+  components: {HeroForm},
+};
 </script>
 
 <style scoped>

@@ -15,6 +15,7 @@
 <script>
 import AccessForm from './AccessForm.vue';
 export default {
+  name: 'EarlyAccess',
   components: {
     AccessForm,
   },

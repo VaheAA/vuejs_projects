@@ -24,7 +24,10 @@
 
 <script>
 import TestimonialCard from './UI/TestimonialCard.vue';
-export default {components: {TestimonialCard}};
+export default {
+  name: 'Features',
+  components: {TestimonialCard},
+};
 </script>
 
 <style scoped>

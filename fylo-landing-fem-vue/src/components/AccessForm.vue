@@ -11,6 +11,7 @@ s
 import FormInput from './UI/FormInput.vue';
 import FormButton from './UI/FormButton.vue';
 export default {
+  name: 'AccessForm',
   components: {FormInput, FormButton},
   data() {
     return {
