@@ -1,12 +1,10 @@
 <template>
-  <label sr-only for="email"></label>
   <input
     :value="modelValue"
     @input="updateInput"
     class="input"
     type="email"
     placeholder="Enter Your email"
-    id="email"
   />
 </template>
 
@@ -14,6 +12,7 @@
 export default {
   props: {
     modelValue: String,
+    id: String,
   },
   methods: {
     updateInput(e) {

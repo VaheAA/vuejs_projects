@@ -6,7 +6,7 @@
           {{ $t('testimonials.text') }}
         </p>
       </blockquote>
-      <div class="card__author">
+      <figure class="card__author">
         <div class="card__author-avatar">
           <img
             src="../../assets/images/avatar-testimonial.jpg"
@@ -21,7 +21,7 @@
             $t('testimonials.author_position')
           }}</span>
         </figcaption>
-      </div>
+      </figure>
     </div>
   </div>
 </template>
