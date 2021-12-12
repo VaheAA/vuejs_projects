@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav">
+  <nav aria-label="primary-navigation" class="nav">
     <div class="nav__menu">
       <ul class="nav__menu-list">
         <li class="nav__menu-item">

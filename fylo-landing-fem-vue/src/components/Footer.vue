@@ -32,7 +32,7 @@
               </li>
             </ul>
           </div>
-          <div class="footer__menu">
+          <nav aria-label="footer-navigation" class="footer__menu">
             <ul class="footer__list">
               <li class="footer__list-item">
                 <a class="footer__list-link" href="#"> About Us </a>
@@ -58,7 +58,7 @@
                 <a class="footer__list-link" href="#"> Privacy </a>
               </li>
             </ul>
-          </div>
+          </nav>
           <div class="footer__social">
             <ul class="footer__list footer__list--row">
               <li class="footer__list-item">
