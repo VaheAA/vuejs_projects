@@ -8,7 +8,11 @@
           <HeroForm />
         </div>
         <div class="hero__image">
-          <img src="../assets/images/illustration-1.svg" alt="hero image" />
+          <img
+            src="../assets/images/illustration-1.svg"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
       </div>
     </div>

@@ -1,24 +1,19 @@
 <template>
-  <div class="container">
-    <nav class="nav">
-      <div class="logo">
-        <img src="../assets/images/logo.svg" alt="" />
-      </div>
-      <div class="nav__menu">
-        <ul class="nav__menu-list">
-          <li class="nav__menu-item">
-            <a class="nav__menu-link" href="">{{ $t('nav.features') }}</a>
-          </li>
-          <li class="nav__menu-item">
-            <a class="nav__menu-link" href="">{{ $t('nav.team') }}</a>
-          </li>
-          <li class="nav__menu-item">
-            <a class="nav__menu-link" href="">{{ $t('nav.signIn') }}</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+  <nav class="nav">
+    <div class="nav__menu">
+      <ul class="nav__menu-list">
+        <li class="nav__menu-item">
+          <a class="nav__menu-link" href="">{{ $t('nav.features') }}</a>
+        </li>
+        <li class="nav__menu-item">
+          <a class="nav__menu-link" href="">{{ $t('nav.team') }}</a>
+        </li>
+        <li class="nav__menu-item">
+          <a class="nav__menu-link" href="">{{ $t('nav.signIn') }}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -28,18 +23,6 @@ export default {
 </script>
 
 <style scoped>
-.nav {
-  padding-top: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.nav .logo {
-  max-width: 100%;
-}
-.nav .logo img {
-  max-width: 100%;
-}
 .nav__menu-list {
   display: flex;
   justify-content: space-between;
@@ -75,12 +58,6 @@ export default {
 }
 
 @media (max-width: 727px) {
-  .nav {
-    padding-top: 35px;
-  }
-  .nav .logo {
-    max-width: 100px;
-  }
   .nav__menu {
     max-width: 100%;
   }

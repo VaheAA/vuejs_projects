@@ -1,25 +1,17 @@
 <template>
-  <header><Navbar /></header>
-  <main>
-    <Hero />
-    <Features />
-    <EarlyAccess />
-  </main>
+  <Header />
+  <Main />
   <Footer />
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue';
-import Hero from '../components/Hero.vue';
-import Features from '../components/Features.vue';
-import EarlyAccess from '../components/EarlyAccess.vue';
+import Header from '../components/Header.vue';
+import Main from '../components/Main.vue';
 import Footer from '../components/Footer.vue';
 export default {
   components: {
-    Navbar,
-    Hero,
-    Features,
-    EarlyAccess,
+    Header,
+    Main,
     Footer,
   },
 };

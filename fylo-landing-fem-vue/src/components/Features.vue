@@ -10,12 +10,20 @@
           </div>
           <a class="features__link" href="#">
             {{ $t('features.link') }}
-            <img src="../assets/images/icon-arrow.svg" alt="" />
+            <img
+              src="../assets/images/icon-arrow.svg"
+              alt=""
+              aria-hidden="true"
+            />
           </a>
           <TestimonialCard></TestimonialCard>
         </div>
         <div class="features__image">
-          <img src="../assets/images/illustration-2.svg" alt="" />
+          <img
+            src="../assets/images/illustration-2.svg"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
       </div>
     </div>

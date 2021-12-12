@@ -12,13 +12,21 @@
             <ul class="footer__list">
               <li class="footer__list-item">
                 <a class="footer__list-link" href="#">
-                  <img src="../assets/images/icon-phone.svg" alt="phone" />
+                  <img
+                    src="../assets/images/icon-phone.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
                   Phone: +1-543-123-4567
                 </a>
               </li>
               <li class="footer__list-item">
                 <a class="footer__list-link" href="#">
-                  <img src="../assets/images/icon-email.svg" alt="phone" />
+                  <img
+                    src="../assets/images/icon-email.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
                   example@fylo.com
                 </a>
               </li>

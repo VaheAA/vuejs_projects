@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     submitForm() {
-      if (!!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+      if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
         this.error = 'Please check your email';
         this.isError = true;
         return;

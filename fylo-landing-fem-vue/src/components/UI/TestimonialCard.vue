@@ -1,11 +1,11 @@
 <template>
   <div class="card">
     <div class="card__inner">
-      <div class="card__content">
+      <blockquote class="card__content">
         <p>
           {{ $t('testimonials.text') }}
         </p>
-      </div>
+      </blockquote>
       <div class="card__author">
         <div class="card__author-avatar">
           <img
@@ -13,14 +13,14 @@
             alt="author avatar"
           />
         </div>
-        <div class="card__author-info">
+        <figcaption class="card__author-info">
           <span class="card__author-name">{{
             $t('testimonials.author_name')
           }}</span>
           <span class="card__author-position">{{
             $t('testimonials.author_position')
           }}</span>
-        </div>
+        </figcaption>
       </div>
     </div>
   </div>
