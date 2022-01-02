@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "title": "An observable Database for the Web",
+      "body": "Considering they have the same feature set, what's the advantage of using this over Firestore ?",
+      "tags": [
+        "webdev",
+        "db"
+      ],
+      "id": 1
+    },
+    {
+      "title": "First option: invoke forEach indirectly",
+      "body": "Set objects are collections of values. You can iterate through the elements of a set in insertion order. A value in the Set may only occur once; it is unique in the Set's collection.",
+      "tags": [
+        "js",
+        "es6"
+      ],
+      "id": 2
+    }
+  ]
+}
