@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, getDoc, doc, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, getDoc, doc, addDoc, deleteDoc, serverTimestamp, onSnapshot } from 'firebase/firestore';
 
 
 const firebaseConfig = {
@@ -20,10 +20,19 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 const db = getFirestore();
-// get a collection
-const colRef = collection(db, 'posts');
-getDocs(colRef);
 
+const createdAt = serverTimestamp();
+
+// get a collection
+const getAllPosts = async () => {
+    const colRef = await getDocs(collection(db, 'posts'));
+    return colRef;
+};
+// get a collection realtime
+const getRealtimePosts = () => {
+    const colRef = onSnapshot(collection(db, 'posts'));
+    return colRef;
+};
 
 // get a single document
 const getSinglePost = async (id) => {
@@ -37,11 +46,18 @@ const addNewPost = async (post) => {
     return docRef;
 
 };
+// delete single doc 
+const removeDoc = async (id) => {
+    await deleteDoc(doc(db, "posts", id));
+};
+
 
 export {
     db,
-    getDocs,
-    colRef,
+    getAllPosts,
     getSinglePost,
-    addNewPost
+    addNewPost,
+    removeDoc,
+    createdAt,
+    getRealtimePosts
 };

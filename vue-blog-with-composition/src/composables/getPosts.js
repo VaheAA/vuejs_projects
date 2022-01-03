@@ -1,5 +1,5 @@
 import { ref } from "@vue/reactivity";
-import { getDocs, colRef } from '../firebase/config';
+import { getAllPosts } from '../firebase/config';
 
 const getPosts = () => {
     const posts = ref([]);
@@ -7,7 +7,7 @@ const getPosts = () => {
 
     const load = async () => {
         try {
-            const res = await getDocs(colRef);
+            const res = await getAllPosts();
             posts.value = res.docs.map(doc => {
                 return { ...doc.data(), id: doc.id };
             });

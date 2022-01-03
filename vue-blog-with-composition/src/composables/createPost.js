@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { useRouter } from "vue-router";
-import { addNewPost } from '../firebase/config';
+import { addNewPost, createdAt } from '../firebase/config';
 
 const createPost = () => {
     const title = ref("");
@@ -22,6 +22,7 @@ const createPost = () => {
             title: title.value,
             body: body.value,
             tags: tags.value,
+            createdAt: createdAt
         };
         try {
             const res = await addNewPost(post);
