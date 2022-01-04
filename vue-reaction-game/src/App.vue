@@ -6,20 +6,20 @@
 </template>
 
 <script>
-import Block from "../src/components/Block.vue";
-import Results from "../src/components/Results.vue";
+import Block from '../src/components/Block.vue';
+import Results from '../src/components/Results.vue';
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Block,
-    Results,
+    Results
   },
   data() {
     return {
       isPlaying: false,
       delay: null,
       score: null,
-      showResults: false,
+      showResults: false
     };
   },
   methods: {
@@ -32,8 +32,8 @@ export default {
       this.score = reactionTime;
       this.isPlaying = false;
       this.showResults = true;
-    },
-  },
+    }
+  }
 };
 </script>
 
