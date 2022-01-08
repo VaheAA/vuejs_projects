@@ -149,7 +149,7 @@
 </template>
 
 <script>
-import {subscribeToTicker, unsubScriberFromTicker} from './api';
+import {subscribeToTicker, unsubScriberFromTicker, socket} from './api';
 
 export default {
   name: 'App',
@@ -169,6 +169,9 @@ export default {
   },
 
   created() {
+    window.addEventListener('beforeunload', () => {
+      socket.close();
+    });
     const windowData = Object.fromEntries(
       new URL(window.location).searchParams.entries()
     );
@@ -190,7 +193,6 @@ export default {
         );
       });
     }
-    setInterval(async () => this.updateTickers(), 5000);
   },
 
   computed: {
@@ -255,7 +257,7 @@ export default {
       };
 
       this.tickers = [...this.tickers, currentTicker];
-      this.tikcer = '';
+      this.ticker = '';
       this.filter = '';
       subscribeToTicker(currentTicker.name, (newPrice) =>
         this.updateTicker(currentTicker.name, newPrice)
