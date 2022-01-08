@@ -149,7 +149,7 @@
 </template>
 
 <script>
-import {subscribeToTicker, unsubScriberFromTicker, socket} from './api';
+import {subscribeToTicker, unsubScriberFromTicker} from './api';
 
 export default {
   name: 'App',
@@ -169,9 +169,6 @@ export default {
   },
 
   created() {
-    window.addEventListener('beforeunload', () => {
-      socket.close();
-    });
     const windowData = Object.fromEntries(
       new URL(window.location).searchParams.entries()
     );
@@ -241,7 +238,12 @@ export default {
     updateTicker(tickerName, price) {
       this.tickers
         .filter((t) => t.name === tickerName)
-        .forEach((t) => (t.price = price));
+        .forEach((t) => {
+          if (t === this.selectedTicker) {
+            this.graph.push(price);
+          }
+          t.price = price;
+        });
     },
     formatPrice(price) {
       if (price === '-') {
@@ -265,7 +267,6 @@ export default {
     },
 
     select(ticker) {
-      console.log(ticker);
       this.selectedTicker = ticker;
     },
 
