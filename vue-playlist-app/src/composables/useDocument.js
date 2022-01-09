@@ -1,6 +1,6 @@
 import {app} from '../firebase/config';
 import {db} from '../firebase/config';
-import {doc, deleteDoc} from 'firebase/firestore';
+import {doc, deleteDoc, updateDoc} from 'firebase/firestore';
 import {ref} from 'vue';
 app;
 
@@ -23,7 +23,21 @@ const useDocument = (collectionName, id) => {
       error.value = 'could not delete the document';
     }
   };
-  return {error, delDoc, isPending};
+
+  const updDoc = async (updates) => {
+    error.value = null;
+    isPending.value = true;
+    try {
+      const res = await updateDoc(docRef, updates);
+      isPending.value = false;
+      return res;
+    } catch (err) {
+      console.log(err.message);
+      isPending.value = false;
+      error.value = 'could not update the document';
+    }
+  };
+  return {error, delDoc, isPending, updDoc};
 };
 
 export default useDocument;

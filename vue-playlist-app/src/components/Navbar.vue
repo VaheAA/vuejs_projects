@@ -7,6 +7,10 @@
       </h1>
       <div class="links">
         <template v-if="user">
+          <span>Hi there, {{ user.displayName }}</span>
+          <router-link class="btn" :to="{name: 'UserPlaylists'}"
+            >My Playlists</router-link
+          >
           <router-link class="btn" :to="{name: 'CreatePlaylist'}"
             >Add Playlist</router-link
           >
@@ -65,5 +69,12 @@ nav .links a,
 button {
   margin-left: 16px;
   font-size: 14px;
+}
+span {
+  font-size: 14px;
+  display: inline-block;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-left: 1px solid #eee;
 }
 </style>

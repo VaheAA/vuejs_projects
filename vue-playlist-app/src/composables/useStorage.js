@@ -8,6 +8,7 @@ import {app} from '../firebase/config';
 import getUser from './getUser';
 import {ref} from 'vue';
 app;
+import {deleteObject} from 'firebase/storage';
 
 const {user} = getUser();
 
@@ -31,7 +32,17 @@ const useStorage = () => {
     }
   };
 
-  return {url, filePath, error, uploadImage};
+  const deleteImage = async (path) => {
+    const storageRef = firebaseRef(storage, path);
+    try {
+      await deleteObject(storageRef);
+    } catch (err) {
+      console.log(err.message);
+      error.value = err.message;
+    }
+  };
+
+  return {url, filePath, error, uploadImage, deleteImage};
 };
 
 export default useStorage;

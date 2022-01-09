@@ -16,7 +16,6 @@ const getDocumet = (collectionName, id) => {
       if (doc.data()) {
         document.value = {...doc.data(), id: doc.id};
         error.value = null;
-        console.log(doc);
       } else {
         error.value = `Playlist with id ${doc.id} does not exist`;
       }

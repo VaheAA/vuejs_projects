@@ -11,7 +11,17 @@
       <button @click="handleDelete" v-if="ownership">Delete Playlist</button>
     </div>
     <div class="song-list">
-      <p>song list here</p>
+      <div v-if="!playlist.songs.length">This playlist is empty.</div>
+      <div v-for="song in playlist.songs" :key="song.id" class="single-song">
+        <transition name="fade">
+          <div class="details">
+            <h1>{{ song.title }}</h1>
+            <p>{{ song.artist }}</p>
+          </div>
+        </transition>
+        <button v-if="ownership" @click="handleClick(song.id)">Delete</button>
+      </div>
+      <AddSong v-if="ownership" :playlist="playlist" />
     </div>
   </div>
 </template>
@@ -19,8 +29,11 @@
 <script>
 import getDocumet from '@/composables/getDocument';
 import getUser from '@/composables/getUser';
-import useDocument from '../../composables/useDocument';
+import useDocument from '@/composables/useDocument';
+import useStorage from '@/composables/useStorage';
 import {computed} from '@vue/reactivity';
+import {useRouter} from 'vue-router';
+import AddSong from '@/components/AddSong.vue';
 export default {
   props: {
     id: String
@@ -28,19 +41,28 @@ export default {
   setup(props) {
     const {document: playlist, error} = getDocumet('playlists', props.id);
     const {user} = getUser();
-    const {delDoc, isPending} = useDocument('playlists', props.id);
+    const {delDoc, updDoc, isPending} = useDocument('playlists', props.id);
+    const {deleteImage} = useStorage();
+    const router = useRouter();
     const ownership = computed(() => {
       return (
         playlist.value && user.value && user.value.uid === playlist.value.userId
       );
     });
     const handleDelete = async () => {
+      await deleteImage(playlist.value.filePath);
       await delDoc();
-      console.log('doc deleted');
+      router.push({name: 'Home'});
     };
-
-    return {playlist, error, ownership, handleDelete};
-  }
+    const handleClick = async (id) => {
+      const songs = playlist.value.songs.filter((song) => song.id !== id);
+      await updDoc({
+        songs
+      });
+    };
+    return {playlist, error, ownership, handleDelete, handleClick};
+  },
+  components: {AddSong}
 };
 </script>
 
@@ -65,6 +87,7 @@ export default {
   min-height: 100%;
   max-width: 200%;
   max-height: 200%;
+  object-fit: cover;
 }
 .playlist-info {
   text-align: center;
@@ -82,5 +105,22 @@ export default {
 }
 .description {
   text-align: left;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.single-song {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed var(--secondary);
+  margin-bottom: 20px;
 }
 </style>
