@@ -26,3 +26,6 @@ pnpm-debug.log*
 /.firebase
 /src/firebase
 firebase.json
+firestore.indexes.json
+firestore.rules
+.firebaserc
