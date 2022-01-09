@@ -21,10 +21,11 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+/src/firebase
 
 *.rules
-/.firebase
-/src/firebase
+.firebase
+src/firebase
 firebase.json
 firestore.indexes.json
 firestore.rules
