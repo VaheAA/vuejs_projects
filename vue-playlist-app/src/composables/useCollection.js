@@ -11,8 +11,9 @@ const useCollection = (collectionName) => {
     isPending.value = true;
 
     try {
-      await addDoc(collection(db, collectionName), doc);
+      const res = await addDoc(collection(db, collectionName), doc);
       isPending.value = false;
+      return res;
     } catch (err) {
       console.log(err.message);
       error.value = err.message;

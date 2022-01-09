@@ -10,26 +10,50 @@
     <label>Upload Playlist Cover Image</label>
     <input type="file" @change="handleChange" />
     <div class="error">{{ fileError }}</div>
-    <button>Create</button>
+    <button v-if="!isPending">Create</button>
+    <button v-else disabled>Creating playlist...</button>
   </form>
 </template>
 
 <script>
 import {ref} from '@vue/reactivity';
 import useStorage from '@/composables/useStorage';
+import useCollection from '@/composables/useCollection';
+import getUser from '@/composables/getUser';
+import {createdAt} from '../../firebase/config';
+import {useRouter} from 'vue-router';
 export default {
   setup() {
     const {filePath, url, uploadImage} = useStorage();
+    const {error, addNewDoc} = useCollection('playlists');
+    const {user} = getUser();
 
     const title = ref('');
     const description = ref('');
     const file = ref(null);
     const fileError = ref(null);
+    const isPending = ref(false);
+    const router = useRouter();
 
     const handleSubmit = async () => {
       if (file.value) {
+        isPending.value = true;
         await uploadImage(file.value);
-        console.log('image uploaded', url.value);
+        const res = await addNewDoc({
+          title: title.value,
+          description: description.value,
+          userId: user.value.uid,
+          userName: user.value.displayName,
+          coverUrl: url.value,
+          filePath: filePath.value,
+          songs: [],
+          createdAt: createdAt
+        });
+        isPending.value = false;
+
+        if (!error.value) {
+          router.push({name: 'PlaylistDetails', params: {id: res.id}});
+        }
       }
     };
 
@@ -47,7 +71,14 @@ export default {
       }
     };
 
-    return {title, description, fileError, handleSubmit, handleChange};
+    return {
+      title,
+      description,
+      fileError,
+      isPending,
+      handleSubmit,
+      handleChange
+    };
   }
 };
 </script>

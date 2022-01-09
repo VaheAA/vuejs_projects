@@ -24,7 +24,7 @@ const useStorage = () => {
     const storageRef = firebaseRef(storage, filePath.value);
     try {
       const res = await uploadBytes(storageRef, file);
-      url.value = getDownloadURL(storage);
+      url.value = await getDownloadURL(storageRef);
     } catch (err) {
       console.log(err.message);
       error.value = 'Could not sign in';

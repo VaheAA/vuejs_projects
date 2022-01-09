@@ -11,7 +11,6 @@ const getCollection = (collectionName) => {
   const unsubscrbe = onSnapshot(
     q,
     (snap) => {
-      console.log('snap');
       let results = [];
       snap.docs.forEach((doc) => {
         doc.data().createdAt && results.push({...doc.data(), id: doc.id});
