@@ -13,6 +13,9 @@
 <script>
 import {ref} from '@vue/reactivity';
 import useDocument from '@/composables/useDocument';
+import {getAnalytics, logEvent} from 'firebase/analytics';
+app;
+
 export default {
   props: {
     playlist: Object
@@ -22,6 +25,7 @@ export default {
     const artist = ref('');
     const showForm = ref(false);
     const {updDoc} = useDocument('playlists', props.playlist.id);
+    const analytics = getAnalytics();
 
     const handleSubmit = async () => {
       const newSong = {
@@ -31,6 +35,10 @@ export default {
       };
       await updDoc({
         songs: [...props.playlist.songs, newSong]
+      });
+      logEvent(analytics, 'add_song', {
+        artist_name: artist.value,
+        song_name: title.value
       });
       title.value = '';
       artist.value = '';

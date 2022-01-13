@@ -2,7 +2,6 @@ import {app} from '../firebase/config';
 import {db} from '../firebase/config';
 import {doc, deleteDoc, updateDoc} from 'firebase/firestore';
 import {ref} from 'vue';
-app;
 
 const useDocument = (collectionName, id) => {
   const error = ref(null);
