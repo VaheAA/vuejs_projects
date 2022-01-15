@@ -4,10 +4,8 @@ import {
   uploadBytes,
   getDownloadURL
 } from 'firebase/storage';
-import {app} from '../firebase/config';
 import getUser from './getUser';
 import {ref} from 'vue';
-app;
 import {deleteObject} from 'firebase/storage';
 
 const {user} = getUser();

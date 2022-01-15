@@ -3,9 +3,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile
 } from 'firebase/auth';
-import {app} from '../firebase/config';
 import {ref} from 'vue';
-app;
 
 const error = ref(null);
 const isPending = ref(false);

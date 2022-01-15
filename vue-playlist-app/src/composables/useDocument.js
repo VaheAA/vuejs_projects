@@ -1,4 +1,3 @@
-import {app} from '../firebase/config';
 import {db} from '../firebase/config';
 import {doc, deleteDoc, updateDoc} from 'firebase/firestore';
 import {ref} from 'vue';

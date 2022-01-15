@@ -1,4 +1,6 @@
 import {createApp} from 'vue';
+import {firebase} from './firebase/config';
+
 import App from './App.vue';
 import router from './router';
 import './assets/main.css';
@@ -10,6 +12,6 @@ const auth = getAuth();
 
 auth.onAuthStateChanged(() => {
   if (!app) {
-    app = createApp(App).use(router).mount('#app');
+    app = createApp(App).use(router).use(firebase).mount('#app');
   }
 });

@@ -1,8 +1,6 @@
 import {ref, watchEffect} from 'vue';
-import {app} from '../firebase/config';
 import {db} from '../firebase/config';
 import {doc, onSnapshot} from 'firebase/firestore';
-app;
 
 const getDocumet = (collectionName, id) => {
   const document = ref(null);
