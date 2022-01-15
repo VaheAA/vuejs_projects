@@ -43,6 +43,7 @@ export default {
     add() {
       if (this.ticker.length === 0) {
         return;
+        da;
       }
       this.$emit('add-ticker', this.ticker);
       this.ticker = '';
